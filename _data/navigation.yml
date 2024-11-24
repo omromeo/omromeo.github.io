@@ -6,6 +6,6 @@ main:
   #- title: "Teaching"
   #  url: /categories/
   - title: "CV"
-    url: <a href="omromeo.github.io/blob/main/assets/pdf/Romeo_O_M_Resume_11_2024.pdf" target="_blank" rel="noopener noreferrer">View My CV</a>
+    url: "/assets/pdf/Romeo_O_M_Resume_11_2024.pdf"
   #- title: "Personal"
   #  url: /about/
