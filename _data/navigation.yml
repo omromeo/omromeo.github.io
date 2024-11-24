@@ -1,11 +1,11 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Research"
-    url: /posts/
-  - title: "Teaching"
-    url: /categories/
+  #- title: "Research"
+  #  url: /posts/
+  #- title: "Teaching"
+  #  url: /categories/
   - title: "CV"
-    url: "https://github.com/omromeo/omromeo.github.io/blob/main/assets/pdf/Romeo_O_M_Resume_11_2024.pdf"
-  - title: "Personal"
-    url: /about/
+    url: <a href="omromeo.github.io/assets/pdf/Romeo_O_M_Resume_11_2024.pdf" target="_blank">PDF.</a>
+  #- title: "Personal"
+  #  url: /about/
