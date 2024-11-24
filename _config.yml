@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "Orlando M. Romeo"
-  avatar : "/assets/images/bio-photo"
+  avatar : "/assets/images/bio-photo.jpg"
   bio    : "Heliophysicst and Planetary Scientist"
   links:
     - label: "Email"
