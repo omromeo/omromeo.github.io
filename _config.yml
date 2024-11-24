@@ -104,7 +104,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
+      type: about
     values:
       layout: single
       author_profile: true
