@@ -1,9 +1,11 @@
 main:
-  - title: "Posts"
-    url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
   - title: "About"
+    url: /about/
+  - title: "Research"
+    url: /posts/
+  - title: "Teaching"
+    url: /categories/
+  - title: "CV"
+    url: "https://github.com/omromeo/omromeo.github.io/blob/main/assets/pdf/Romeo_O_M_Resume_11_2024.pdf"
+  - title: "Personal"
     url: /about/
