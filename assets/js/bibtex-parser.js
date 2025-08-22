@@ -118,8 +118,8 @@ async function loadPublications() {
       }
 
       if (fields.school) citation += `${toTitleCase(fields.school)}. `;
-      if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}">DOI</a>. `;
-      if (fields.url && !fields.doi) citation += `<a href="${fields.url}">URL</a>. `;
+      if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}"> DOI</a>. `;
+      if (fields.url && !fields.doi) citation += `<a href="${fields.url}"> URL</a>. `;
 
       html += `<li>${citation}</li>`;
     });
