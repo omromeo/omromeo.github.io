@@ -1,85 +1,84 @@
-/* General reset */
-* {
+/* Global reset */
+body {
+  font-family: "Inter", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #f9fafb;
+  color: #1f2937;
   line-height: 1.6;
-  padding: 20px;
 }
 
-/* Navigation bar */
+/* Navbar */
 nav {
-  background: #0b3d91;
-  padding: 10px;
+  background-color: #2563eb;
+  padding: 1rem 2rem;
 }
-
 nav ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
+nav a {
   color: #fff;
+  font-weight: 500;
   text-decoration: none;
-  font-weight: bold;
 }
-
-nav ul li a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 
-/* Main content */
-main, header {
-  margin-top: 30px;
-  text-align: center;
+/* Page container */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
+/* Headers */
+h1, h2 {
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
 h1 {
   font-size: 2rem;
-  margin-bottom: 15px;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
 }
 
-p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
+/* Profile section */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.profile-text {
+  max-width: 600px;
 }
 
-/* Publications page */
+/* Publication list */
 .pub-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 1rem;
+  margin: 0.5rem 0 1.5rem 0;
 }
-
 .pub-list li {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-  line-height: 1.4;
+  margin-bottom: 0.8rem;
 }
 
-.pub-list a {
-  color: #0b3d91;
-  text-decoration: none;
-  font-weight: bold;
+/* Links */
+a {
+  color: #2563eb;
 }
-
-.pub-list a:hover {
-  text-decoration: underline;
+a:hover {
+  color: #1d4ed8;
 }
-
