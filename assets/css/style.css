@@ -82,9 +82,15 @@ h2 {
 
 /* Container holding image + text */
 .profile-container {
-  display: flex;           /* side by side */
-  align-items: flex-start; /* align top of text with image */
-  margin: 2rem;            /* some space around the section */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;          /* adjust width */
+  height: 100vh;         /* full viewport height */
+  background-color: #f4f4f4; /* optional */
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 /* Profile photo */
@@ -93,9 +99,7 @@ h2 {
   height: auto;            /* keep aspect ratio */
   border-radius: 50%;      /* makes it circular */
   margin-right: 2rem;      /* space between image and text */
-  flex-shrink: 0;          /* prevent shrinking */
-  position: sticky;
-  top: 2rem; /* distance from top of viewport */
+  object-fit: cover;    /* ensures proper scaling */
 }
 
 /* Publication list */
