@@ -90,6 +90,12 @@ async function loadPublications() {
   // Sort by year descending
   parsed.sort((a, b) => (b.year || 0) - (a.year || 0));
 
+  // Assign numbers (reverse order: oldest = 1, newest = N)
+  const total = parsed.length;
+  parsed.forEach((pub, i) => {
+    pub.number = total - i; // newest gets highest number
+  });
+
   // Group by year
   const grouped = {};
   parsed.forEach(pub => {
@@ -99,18 +105,15 @@ async function loadPublications() {
   });
 
   // Generate HTML
-  let html = '';
+  let html = '<div class="pub-list">';
   Object.keys(grouped).sort((a, b) => Number(b) - Number(a)).forEach(year => {
-    html += `<h2>${year}</h2><ul class="pub-list">`;
+    html += `<h2>${year}</h2>`;
     grouped[year].forEach(fields => {
       let citation = '';
 
       if (fields.author) {
-        // Replace "and" with commas
         let authors = fields.author.replace(/\s+and\s+/g, ', ');
-        // Replace "others" with <em>et al.</em>
         authors = authors.replace(/\bothers\b/gi, '<em>et al.</em>');
-        // Bold your name if present
         authors = authors.replace(/(Romeo, O\. M\.)/, '<strong>$1</strong>');
         citation += `${authors} `;
       }
@@ -136,12 +139,14 @@ async function loadPublications() {
       if (fields.doi) citation += ` <a href="https://doi.org/${fields.doi}">DOI</a>. `;
       if (fields.url && !fields.doi) citation += `<a href="${fields.url}"> URL</a>. `;
 
-      html += `<li>${citation}</li>`;
+      // use number instead of bullet
+      citation = `<span class="pub-number">${fields.number}.</span> ${citation}`;
+      html += `<div class="pub-item">${citation}</div>`;
     });
-    html += `</ul>`;
   });
+  html += '</div>';
 
-  document.getElementById('publications-list').innerHTML = html;
+  document.getElementById('publications').innerHTML = html;
 }
 
 document.addEventListener('DOMContentLoaded', loadPublications);
