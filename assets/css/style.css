@@ -96,3 +96,27 @@ a {
 a:hover {
   color: #1d4ed8;
 }
+
+/* Dark mode */
+body.dark {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark nav {
+  background-color: #111827;
+}
+
+body.dark nav a {
+  color: #f9fafb;
+}
+
+body.dark a {
+  color: #93c5fd;
+}
+
+body.dark h1, 
+body.dark h2 {
+  color: #f9fafb;
+}
+
