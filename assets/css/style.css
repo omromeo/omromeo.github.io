@@ -154,6 +154,13 @@ h2 {
   padding: 2rem;
 }
 
+#sidebar {
+  width: 220px;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
 /* Publication list */
 .pub-list {
   padding-left: 1rem;
