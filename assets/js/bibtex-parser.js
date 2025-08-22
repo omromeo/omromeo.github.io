@@ -43,6 +43,21 @@ function toTitleCase(str) {
     }).join(' ');
 }
 
+// Load Google Scholar metrics from local JSON
+async function loadScholarMetrics() {
+  try {
+    const response = await fetch('data/google-scholar.json');
+    const data = await response.json();
+    document.getElementById('scholar-sidebar').innerHTML = `
+      <p><strong>H-index:</strong> ${data.hindex}</p>
+      <p><strong>Citations:</strong> ${data.citations}</p>
+    `;
+  } catch (err) {
+    console.error('Error loading scholar metrics:', err);
+    document.getElementById('scholar-sidebar').innerText = 'Unable to load metrics';
+  }
+}
+
 async function loadPublications() {
   const response = await fetch('data/publications.bib');
   if (!response.ok) {
@@ -118,7 +133,7 @@ async function loadPublications() {
       }
 
       if (fields.school) citation += `${toTitleCase(fields.school)}. `;
-      if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}"> DOI</a>. `;
+      if (fields.doi) citation += ` <a href="https://doi.org/${fields.doi}">DOI</a>. `;
       if (fields.url && !fields.doi) citation += `<a href="${fields.url}"> URL</a>. `;
 
       html += `<li>${citation}</li>`;
