@@ -33,7 +33,7 @@ function convertLatexAccents(str) {
 
 // Function to ignore small words for title capitalization
 function toTitleCase(str) {
-    const smallWords = ['and', 'or', 'the', 'of', 'in', 'on', 'with', 'a', 'an', 'for', 'to'];
+    const smallWords = ['and', 'or', 'the', 'of', 'in', 'on', 'with', 'a', 'an', 'for', 'to', 'sunRunner3D'];
     return str.split(' ').map((word, index) => {
         if (index === 0 || !smallWords.includes(word.toLowerCase())) {
             return word.charAt(0).toUpperCase() + word.slice(1);
@@ -99,16 +99,16 @@ async function loadPublications() {
       }
     
       if (fields.year) citation += `(${fields.year}). `;
-      if (fields.title) citation += `<em>${toTitleCase(fields.title)}</em>. `;
+      if (fields.title) citation += `${toTitleCase(fields.title)}. `;
 
       if (fields.journal && type.toLowerCase() === 'article') {
-        citation += `${toTitleCase(fields.journal)}`;
+        citation += `<em>${toTitleCase(fields.journal)}</em>`;
         if (fields.volume) citation += `, ${fields.volume}`;
         if (fields.number) citation += `(${fields.number})`;
         if (fields.pages) citation += `, ${fields.pages}`;
         citation += `. `;
       } else if (fields.journal) {
-          citation += `${fields.journal}. `;
+          citation += `<em>${fields.journal}</em>. `;
       }
       
       if (fields.school) citation += `${toTitleCase(fields.school)}. `;
