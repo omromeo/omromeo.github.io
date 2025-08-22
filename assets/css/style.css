@@ -36,6 +36,20 @@ nav a:hover {
   padding: 0 1rem;
 }
 
+/* Theme toggle button */
+#theme-toggle {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+#theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 /* Headers */
 h1, h2 {
   color: #111827;
