@@ -94,6 +94,8 @@ h2 {
   border-radius: 50%;      /* makes it circular */
   margin-right: 2rem;      /* space between image and text */
   flex-shrink: 0;          /* prevent shrinking */
+  position: sticky;
+  top: 2rem; /* distance from top of viewport */
 }
 
 /* Publication list */
