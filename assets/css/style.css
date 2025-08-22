@@ -37,6 +37,10 @@ body {
   padding: 0;
 }
 
+.nav-right li {
+  display: inline; /* optional but ensures inline */
+}
+
 .nav-right li a {
   color: #fff;
   text-decoration: none;
