@@ -80,6 +80,22 @@ h2 {
   max-width: 600px;
 }
 
+/* Container holding image + text */
+.profile-container {
+  display: flex;           /* side by side */
+  align-items: flex-start; /* align top of text with image */
+  margin: 2rem;            /* some space around the section */
+}
+
+/* Profile photo */
+.profile-photo {
+  width: 150px;            /* smaller size */
+  height: auto;            /* keep aspect ratio */
+  border-radius: 50%;      /* makes it circular */
+  margin-right: 2rem;      /* space between image and text */
+  flex-shrink: 0;          /* prevent shrinking */
+}
+
 /* Publication list */
 .pub-list {
   padding-left: 1rem;
