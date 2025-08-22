@@ -45,6 +45,10 @@ function toTitleCase(str) {
 
 async function loadPublications() {
   const response = await fetch('data/publications.bib');
+  if (!response.ok) {
+    console.error('Failed to load bib file', response.status);
+    return;
+  }
   const bibtex = await response.text();
 
   const entries = bibtex.split('@').slice(1);
@@ -81,7 +85,7 @@ async function loadPublications() {
 
   // Generate HTML
   let html = '';
-  Object.keys(grouped).sort((a, b) => b - a).forEach(year => {
+  Object.keys(grouped).sort((a, b) => Number(b) - Number(a)).forEach(year => {
     html += `<h2>${year}</h2><ul class="pub-list">`;
     grouped[year].forEach(fields => {
       let citation = '';
