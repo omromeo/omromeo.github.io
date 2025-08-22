@@ -163,9 +163,20 @@ h2 {
 
 /* Publication list */
 .pub-list {
+  list-style: none;
   padding-left: 1rem;
   margin: 0.5rem 0 1.5rem 0;
 }
+
+.pub-item {
+  margin-bottom: 10px;
+}
+
+.pub-number {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
 .pub-list li {
   margin-bottom: 0.8rem;
 }
