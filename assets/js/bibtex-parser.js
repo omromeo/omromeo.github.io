@@ -31,6 +31,18 @@ function convertLatexAccents(str) {
   return result;
 }
 
+// Function to ignore small words for title capitalization
+function toTitleCase(str) {
+    const smallWords = ['and', 'or', 'the', 'of', 'in', 'on', 'with', 'a', 'an', 'for', 'to'];
+    return str.split(' ').map((word, index) => {
+        if (index === 0 || !smallWords.includes(word.toLowerCase())) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        } else {
+            return word.toLowerCase();
+        }
+    }).join(' ');
+}
+
 async function loadPublications() {
   const response = await fetch('data/publications.bib');
   const bibtex = await response.text();
@@ -75,19 +87,31 @@ async function loadPublications() {
     grouped[year].forEach(fields => {
       let citation = '';
       if (fields.author) {
+        // Replace "and" with commas
+        let authors = fields.author.replace(/\s+and\s+/g, ', ');
         // Replace "others" with <em>et al.</em>
         let authors = fields.author.replace(/\bothers\b/gi, '<em>et al.</em>');
-    
+        
         // Optional: Bold your name if present
         authors = authors.replace(/(Romeo, O\. M\.)/, '<strong>$1</strong>');
     
-        citation += `${authors}. `;
+        citation += `${authors} `;
       }
     
       if (fields.year) citation += `(${fields.year}). `;
-      if (fields.title) citation += `<em>${fields.title}</em>. `;
-      if (fields.journal) citation += `${fields.journal}. `;
-      if (fields.school) citation += `${fields.school}. `;
+      if (fields.title) citation += `<em>${toTitleCase(fields.title)}</em>. `;
+
+      if (fields.journal && type.toLowerCase() === 'article') {
+        citation += `${toTitleCase(fields.journal)}`;
+        if (fields.volume) citation += `, ${fields.volume}`;
+        if (fields.number) citation += `(${fields.number})`;
+        if (fields.pages) citation += `, ${fields.pages}`;
+        citation += `. `;
+      } else if (fields.journal) {
+          citation += `${fields.journal}. `;
+      }
+      
+      if (fields.school) citation += `${toTitleCase(fields.school)}. `;
       if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}">DOI</a>. `;
       if (fields.url && !fields.doi) citation += `<a href="${fields.url}">Link</a>. `;
     
