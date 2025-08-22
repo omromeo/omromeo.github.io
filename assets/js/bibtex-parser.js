@@ -1,145 +1,131 @@
-// ===== Utilities =====
+// Enhanced BibTeX parser with year grouping, sorting, and LaTeX accent handling
 const latexAccents = {
-  "\\'a": "á","\\'e": "é","\\'i": "í","\\'o": "ó","\\'u": "ú",
-  "\\'A": "Á","\\'E": "É","\\'I": "Í","\\'O": "Ó","\\'U": "Ú",
-  "\\~n": "ñ","\\~N": "Ñ",
-  '\\"a': "ä", '\\"o': "ö", '\\"u': "ü", '\\"A': "Ä", '\\"O': "Ö", '\\"U': "Ü",
-  "\\`a": "à","\\`e": "è","\\`i": "ì","\\`o": "ò","\\`u": "ù",
-  "\\c{c}": "ç", "\\c{C}": "Ç"
+  "\\'a": "á",
+  "\\'e": "é",
+  "\\'i": "í",
+  "\\'o": "ó",
+  "\\'u": "ú",
+  "\\'A": "Á",
+  "\\'E": "É",
+  "\\'I": "Í",
+  "\\'O": "Ó",
+  "\\'U": "Ú",
+  "\\~n": "ñ",
+  "\\~N": "Ñ",
+  '\\"o': "ö",
+  '\\"u': "ü",
+  "\\`a": "à",
+  "\\`e": "è"
+  // add more if needed
 };
 
 function convertLatexAccents(str) {
-  if (!str) return '';
   let result = str;
   for (const key in latexAccents) {
-    const re = new RegExp(key, 'g');
-    result = result.replace(re, latexAccents[key]);
+    const regex = new RegExp(key, 'g');
+    result = result.replace(regex, latexAccents[key]);
   }
-  // strip surrounding braces/quotes that BibTeX often uses
-  result = result.replace(/^[\s"{]+|[\s"}]+$/g, '');
-  // remove any remaining naked braces
+  // remove remaining braces
   result = result.replace(/[{}]/g, '');
   return result;
 }
 
+// Function to ignore small words for title capitalization
 function toTitleCase(str) {
-  if (!str) return '';
-  const small = ['and','or','the','of','in','on','with','a','an','for','to'];
-  return str
-    .split(/\s+/)
-    .map((w, i) => (i === 0 || !small.includes(w.toLowerCase()))
-      ? w.charAt(0).toUpperCase() + w.slice(1)
-      : w.toLowerCase())
-    .join(' ');
+    const smallWords = ['and', 'or', 'the', 'of', 'in', 'on', 'with', 'a', 'an', 'for', 'to', 'sunRunner3D'];
+    return str.split(' ').map((word, index) => {
+        if (index === 0 || !smallWords.includes(word.toLowerCase())) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        } else {
+            return word.toLowerCase();
+        }
+    }).join(' ');
 }
-
-// ===== BibTeX parsing =====
-// Matches key = {value} or "value" possibly across lines (simple, non-nested)
-const FIELD_RE = /(\w+)\s*=\s*(\{([^]*?)\}|"([^"]*?)")\s*,?/gms;
 
 async function loadPublications() {
   const response = await fetch('data/publications.bib');
   if (!response.ok) {
     console.error('Failed to load bib file', response.status);
-    const el = document.getElementById('publications-list');
-    if (el) el.textContent = 'Failed to load publications.';
     return;
   }
   const bibtex = await response.text();
 
-  // Split entries on @, skip empty chunk before first @
-  const chunks = bibtex.split('@').slice(1);
-  const pubs = [];
+  const entries = bibtex.split('@').slice(1);
+  const parsed = [];
 
-  for (const chunk of chunks) {
-    const type = chunk.split('{')[0].trim().toLowerCase(); // article, inproceedings, etc.
-    // everything after first { up to end; we'll regex fields out of it
-    const content = chunk.substring(chunk.indexOf('{') + 1);
-
+  entries.forEach(entry => {
+    const type = entry.split('{')[0].trim().toLowerCase();
+    const content = entry.substring(entry.indexOf('{') + 1);
     const fields = { _type: type };
-    let m;
-    FIELD_RE.lastIndex = 0; // reset regex state for each entry
-    while ((m = FIELD_RE.exec(content)) !== null) {
-      const key = m[1].toLowerCase();
-      const rawVal = (m[3] ?? m[4] ?? '').trim();
-      fields[key] = convertLatexAccents(rawVal);
-    }
 
-    pubs.push(fields);
-  }
+    content.split(',\n').forEach(line => {
+      const parts = line.split('=');
+      if (parts.length === 2) {
+        const key = parts[0].trim().toLowerCase();
+        let value = parts[1].trim();
+        value = convertLatexAccents(value);
+        fields[key] = value;
+      }
+    });
 
-  // Sort newest first by numeric year (fallback 0)
-  pubs.sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+    parsed.push(fields);
+  });
 
-  // Assign custom reverse numbers (oldest = 1, newest = N)
-  const total = pubs.length;
-  pubs.forEach((p, i) => { p._n = total - i; });
+  // Sort by year descending
+  parsed.sort((a, b) => (b.year || 0) - (a.year || 0));
 
-  // Group by year for headings (numbering stays global)
-  const byYear = {};
-  for (const p of pubs) {
-    const y = p.year || 'No Year';
-    (byYear[y] ||= []).push(p);
-  }
+  // Group by year
+  const grouped = {};
+  parsed.forEach(pub => {
+    const year = pub.year || "No Year";
+    if (!grouped[year]) grouped[year] = [];
+    grouped[year].push(pub);
+  });
 
-  // Build HTML (no bullets; explicit numbers)
-  let html = '<div class="pub-list">';
-  for (const year of Object.keys(byYear).sort((a,b) => Number(b) - Number(a))) {
-    html += `<h2>${year}</h2>`;
-    for (const f of byYear[year]) {
+  // Generate HTML
+  let html = '';
+  Object.keys(grouped).sort((a, b) => Number(b) - Number(a)).forEach(year => {
+    html += `<h2>${year}</h2><ul class="pub-list">`;
+    grouped[year].forEach(fields => {
       let citation = '';
 
-      // Authors
-      if (f.author) {
-        let authors = f.author
-          .replace(/\s+and\s+/g, ', ')
-          .replace(/\bothers\b/gi, '<em>et al.</em>');
-        // Bold your name (adjust pattern to match your BibTeX exactly)
-        authors = authors.replace(/(Romeo,\s*O\.?\s*M\.?)/, '<strong>$1</strong>');
+      if (fields.author) {
+        // Replace "and" with commas
+        let authors = fields.author.replace(/\s+and\s+/g, ', ');
+        // Replace "others" with <em>et al.</em>
+        authors = authors.replace(/\bothers\b/gi, '<em>et al.</em>');
+        // Bold your name if present
+        authors = authors.replace(/(Romeo, O\. M\.)/, '<strong>$1</strong>');
         citation += `${authors} `;
       }
 
-      if (f.year) citation += `(${f.year}). `;
+      if (fields.year) citation += `(${fields.year}). `;
+      if (fields.title) citation += `${toTitleCase(fields.title)}. `;
 
-      if (f.title) citation += `${toTitleCase(f.title)}. `;
-
-      // Venue formatting
-      if (f._type === 'article' && f.journal) {
-        citation += `<em>${toTitleCase(f.journal)}</em>`;
-        if (f.volume) citation += `, ${f.volume}`;
-        if (f.number) citation += `(${f.number})`;
-        if (f.pages)  citation += `, ${f.pages}`;
-        citation += `. `;
-      } else if (f._type === 'inproceedings' && f.booktitle) {
-        citation += `<em>${toTitleCase(f.booktitle)}</em>`;
-        if (f.volume) citation += `, ${f.volume}`;
-        if (f.number) citation += `(${f.number})`;
-        if (f.pages)  citation += `, ${f.pages}`;
-        citation += `. `;
-      } else if (f.journal) {
-        citation += `<em>${f.journal}</em>. `;
-      } else if (f.school) {
-        citation += `${toTitleCase(f.school)}. `;
+      if (fields._type === 'article' && fields.journal) {
+        citation += `<em>${toTitleCase(fields.journal)}</em>`;
+        if (fields.volume) citation += `, ${fields.volume}`;
+        if (fields.number) citation += `(${fields.number})`;
+        if (fields.pages) citation += `, ${fields.pages}.`;
+      } else if (fields._type === 'inproceedings' && fields.booktitle) {
+        citation += `<em>${toTitleCase(fields.booktitle)}</em>`;
+        if (fields.volume) citation += `, ${fields.volume}`;
+        if (fields.number) citation += `(${fields.number})`;
+        if (fields.pages) citation += `, ${fields.pages}.`;
+      } else if (fields.journal) {
+        citation += `<em>${fields.journal}</em>. `;
       }
 
-      if (f.doi) citation += `<a href="https://doi.org/${f.doi}" target="_blank" rel="noopener">DOI</a>. `;
-      if (f.url && !f.doi) citation += `<a href="${f.url}" target="_blank" rel="noopener">Link</a>. `;
+      if (fields.school) citation += `${toTitleCase(fields.school)}. `;
+      if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}">DOI</a>. `;
+      if (fields.url && !fields.doi) citation += `<a href="${fields.url}">URL</a>. `;
 
-      html += `
-        <div class="pub-item">
-          <span class="pub-number">${f._n}.</span>
-          <span class="pub-citation">${citation}</span>
-        </div>`;
-    }
-  }
-  html += '</div>';
+      html += `<li>${citation}</li>`;
+    });
+    html += `</ul>`;
+  });
 
-  const mount = document.getElementById('publications-list'); // <-- keep your existing id
-  if (!mount) {
-    console.error('Missing #publications-list element in HTML');
-    return;
-  }
-  mount.innerHTML = html;
+  document.getElementById('publications-list').innerHTML = html;
 }
 
 document.addEventListener('DOMContentLoaded', loadPublications);
