@@ -8,24 +8,36 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar */
-nav {
-  background-color: #2563eb;
-  padding: 1rem 2rem;
+/* Top Navigation */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  z-index: 1000; /* ensure it's on top of sidebar */
 }
-nav ul {
+
+
+.top-nav ul {
   display: flex;
-  gap: 1.5rem;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 1rem;
+  gap: 1.5rem;
 }
-nav a {
+
+.top-nav li {
+  margin-right: 1rem;
+}
+
+.top-nav a {
   color: #fff;
   font-weight: 500;
   text-decoration: none;
 }
-nav a:hover {
+.top-nav a:hover {
   text-decoration: underline;
 }
 
@@ -83,14 +95,15 @@ h2 {
 /* Container holding image + text */
 .profile-container {
   position: fixed;
-  top: 0;
+  top: 60px;            /* space below the navbar */
   left: 0;
-  width: 220px;          /* adjust width */
-  height: 100vh;         /* full viewport height */
-  background-color: #f4f4f4; /* optional */
-  padding: 2rem;
+  width: 220px;
+  height: calc(100vh - 60px); /* full height minus navbar */
+  background-color: #f4f4f4;
+  padding: 2rem 1rem;
   box-sizing: border-box;
   text-align: center;
+  overflow-y: auto;      /* scroll if content exceeds height */
 }
 
 /* Profile photo */
@@ -100,6 +113,13 @@ h2 {
   border-radius: 50%;      /* makes it circular */
   margin-right: 2rem;      /* space between image and text */
   object-fit: cover;    /* ensures proper scaling */
+}
+
+/* Main content shifted right */
+.main-content {
+  margin-left: 240px;     /* width of sidebar + margin */
+  margin-top: 60px;       /* height of navbar */
+  padding: 2rem;
 }
 
 /* Publication list */
