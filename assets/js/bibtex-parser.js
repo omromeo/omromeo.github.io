@@ -128,8 +128,9 @@ async function loadPublications() {
       citation = `<span class="pub-number">${fields.number}.</span> ${citation}`;
       html += `<div class="pub-item">${citation}</div>`;
     });
+    html += '</div>';
   });
-  html += '</div>';
+  
 
   document.getElementById('publications').innerHTML = html;
 }
