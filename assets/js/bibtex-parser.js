@@ -1,4 +1,36 @@
-// Enhanced BibTeX parser with year grouping and sorting
+// Enhanced BibTeX parser with year grouping, sorting, and LaTeX accent handling
+
+const latexAccents = {
+  "\\'a": "á",
+  "\\'e": "é",
+  "\\'i": "í",
+  "\\'o": "ó",
+  "\\'u": "ú",
+  "\\'A": "Á",
+  "\\'E": "É",
+  "\\'I": "Í",
+  "\\'O": "Ó",
+  "\\'U": "Ú",
+  "\\~n": "ñ",
+  "\\~N": "Ñ",
+  '\\"o': "ö",
+  '\\"u': "ü",
+  "\\`a": "à",
+  "\\`e": "è"
+  // add more if needed
+};
+
+function convertLatexAccents(str) {
+  let result = str;
+  for (const key in latexAccents) {
+    const regex = new RegExp(key, 'g');
+    result = result.replace(regex, latexAccents[key]);
+  }
+  // remove remaining braces
+  result = result.replace(/[{}]/g, '');
+  return result;
+}
+
 async function loadPublications() {
   const response = await fetch('data/publications.bib');
   const bibtex = await response.text();
@@ -16,7 +48,8 @@ async function loadPublications() {
       const parts = line.split('=');
       if (parts.length === 2) {
         const key = parts[0].trim().toLowerCase();
-        const value = parts[1].trim().replace(/[{}"]/g, '');
+        const rawValue = parts[1].trim();
+        const value = convertLatexAccents(rawValue);
         fields[key] = value;
       }
     });
@@ -40,37 +73,14 @@ async function loadPublications() {
   Object.keys(grouped).sort((a, b) => b - a).forEach(year => {
     html += `<h2>${year}</h2><ul class="pub-list">`;
     grouped[year].forEach(fields => {
-      // Format authors
-      let authors = fields.author ? fields.author.split(' and ').map(a => a.trim()) : [];
-      const yourName = "Romeo, O. M.";
-      let formattedAuthors = '';
-
-      if (authors.includes(yourName)) {
-        let others = authors.filter(a => a !== yourName);
-        if (authors.length > 4) {
-          formattedAuthors = others.slice(0, 1).join(', ') + ', ..., <strong>' + yourName + '</strong>, <em>et al.</em>';
-        } else {
-          formattedAuthors = others.join(', ') + (others.length ? ', ' : '') + '<strong>' + yourName + '</strong>';
-        }
-      } else {
-        formattedAuthors = authors.join(', ');
-      }
-
-      // Format rest of citation
       let citation = '';
-      if (formattedAuthors) citation += formattedAuthors + '. ';
+      if (fields.author) citation += `<strong>${fields.author}</strong>. `;
       if (fields.year) citation += `(${fields.year}). `;
       if (fields.title) citation += `<em>${fields.title}</em>. `;
-      if (fields.journal) citation += `<em>${fields.journal}</em>, `;
-      if (fields.volume) {
-        citation += `<em>${fields.volume}`;
-        if (fields.number) citation += `(${fields.number})`;
-        citation += `</em>, `;
-      }
-      if (fields.pages) citation += `${fields.pages}. `;
+      if (fields.journal) citation += `${fields.journal}. `;
+      if (fields.school) citation += `${fields.school}. `;
       if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}">DOI</a>. `;
       if (fields.url && !fields.doi) citation += `<a href="${fields.url}">Link</a>. `;
-
       html += `<li>${citation}</li>`;
     });
     html += `</ul>`;
