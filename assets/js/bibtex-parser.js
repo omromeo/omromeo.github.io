@@ -47,21 +47,20 @@ async function loadPublications() {
   const response = await fetch('data/publications.bib');
   const bibtex = await response.text();
 
-  // Split entries by "@"
   const entries = bibtex.split('@').slice(1);
   const parsed = [];
 
   entries.forEach(entry => {
-    const type = entry.split('{')[0].trim();
+    const type = entry.split('{')[0].trim().toLowerCase();
     const content = entry.substring(entry.indexOf('{') + 1);
-    const fields = {};
+    const fields = { _type: type };
 
     content.split(',\n').forEach(line => {
       const parts = line.split('=');
       if (parts.length === 2) {
         const key = parts[0].trim().toLowerCase();
-        const rawValue = parts[1].trim();
-        const value = convertLatexAccents(rawValue);
+        let value = parts[1].trim();
+        value = convertLatexAccents(value);
         fields[key] = value;
       }
     });
@@ -69,7 +68,7 @@ async function loadPublications() {
     parsed.push(fields);
   });
 
-  // Sort by year (descending)
+  // Sort by year descending
   parsed.sort((a, b) => (b.year || 0) - (a.year || 0));
 
   // Group by year
@@ -86,35 +85,38 @@ async function loadPublications() {
     html += `<h2>${year}</h2><ul class="pub-list">`;
     grouped[year].forEach(fields => {
       let citation = '';
+
       if (fields.author) {
         // Replace "and" with commas
         let authors = fields.author.replace(/\s+and\s+/g, ', ');
         // Replace "others" with <em>et al.</em>
-        let authors = fields.author.replace(/\bothers\b/gi, '<em>et al.</em>');
-        
-        // Optional: Bold your name if present
+        authors = authors.replace(/\bothers\b/gi, '<em>et al.</em>');
+        // Bold your name if present
         authors = authors.replace(/(Romeo, O\. M\.)/, '<strong>$1</strong>');
-    
         citation += `${authors} `;
       }
-    
+
       if (fields.year) citation += `(${fields.year}). `;
       if (fields.title) citation += `${toTitleCase(fields.title)}. `;
 
-      if (fields.journal && type.toLowerCase() === 'article') {
+      if (fields._type === 'article' && fields.journal) {
         citation += `<em>${toTitleCase(fields.journal)}</em>`;
         if (fields.volume) citation += `, ${fields.volume}`;
         if (fields.number) citation += `(${fields.number})`;
-        if (fields.pages) citation += `, ${fields.pages}`;
-        citation += `. `;
+        if (fields.pages) citation += `, ${fields.pages}.`;
+      } else if (fields._type === 'inproceedings' && fields.booktitle) {
+        citation += `<em>${toTitleCase(fields.booktitle)}</em>`;
+        if (fields.volume) citation += `, ${fields.volume}`;
+        if (fields.number) citation += `(${fields.number})`;
+        if (fields.pages) citation += `, ${fields.pages}.`;
       } else if (fields.journal) {
-          citation += `<em>${fields.journal}</em>. `;
+        citation += `<em>${fields.journal}</em>. `;
       }
-      
+
       if (fields.school) citation += `${toTitleCase(fields.school)}. `;
       if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}">DOI</a>. `;
       if (fields.url && !fields.doi) citation += `<a href="${fields.url}">URL</a>. `;
-    
+
       html += `<li>${citation}</li>`;
     });
     html += `</ul>`;
