@@ -74,13 +74,23 @@ async function loadPublications() {
     html += `<h2>${year}</h2><ul class="pub-list">`;
     grouped[year].forEach(fields => {
       let citation = '';
-      if (fields.author) citation += `<strong>${fields.author}</strong>. `;
+      if (fields.author) {
+        // Replace "others" with <em>et al.</em>
+        let authors = fields.author.replace(/\bothers\b/gi, '<em>et al.</em>');
+    
+        // Optional: Bold your name if present
+        authors = authors.replace(/(Romeo, O\. M\.)/, '<strong>$1</strong>');
+    
+        citation += `${authors}. `;
+      }
+    
       if (fields.year) citation += `(${fields.year}). `;
       if (fields.title) citation += `<em>${fields.title}</em>. `;
       if (fields.journal) citation += `${fields.journal}. `;
       if (fields.school) citation += `${fields.school}. `;
       if (fields.doi) citation += `<a href="https://doi.org/${fields.doi}">DOI</a>. `;
       if (fields.url && !fields.doi) citation += `<a href="${fields.url}">Link</a>. `;
+    
       html += `<li>${citation}</li>`;
     });
     html += `</ul>`;
