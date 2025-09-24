@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://omromeo.com/index.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://omromeo.com/about.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Research overview -->
+  <url>
+    <loc>https://omromeo.com/research.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Research subpages -->
+  <url>
+    <loc>https://omromeo.com/heliophysics.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omromeo.com/planetary.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omromeo.com/geospace.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Teaching -->
+  <url>
+    <loc>https://omromeo.com/teaching.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Publications -->
+  <url>
+    <loc>https://omromeo.com/publications.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Presentations -->
+  <url>
+    <loc>https://omromeo.com/presentations.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Outreach -->
+  <url>
+    <loc>https://omromeo.com/outreach.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- CV -->
+  <url>
+    <loc>https://omromeo.com/cv.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://omromeo.com/contact.html</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

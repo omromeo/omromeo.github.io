@@ -1,0 +1,13 @@
+# robots.txt for omromeo.github.io
+# Allow all search engines to index everything
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive folders (if any exist in the future)
+Disallow: /assets/
+Disallow: /data/
+Disallow: /images/
+
+# Point to sitemap
+Sitemap: https://omromeo.com/sitemap.xml
