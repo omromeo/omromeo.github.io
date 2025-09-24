@@ -1,0 +1,91 @@
+<!-- Publications Page -->
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<!-- HEAD CONTENT-->
+<head>
+  <!-- WEB PAGE TITLE-->
+  <title>Publications – Romeo O. M.</title>
+  <!-- METADATA -->
+  <meta charset="UTF-8"/> <!-- Sets character encoding so symbols/text display correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Makes site mobile-friendly (scales properly on phones & tablets) -->
+  <meta name="author" content="Orlando M. Romeo" />
+  <meta name="description" content="Publications List for Orlando M. Romeo" />
+  <meta name="keywords" content="Publications, papers, citations, h-index, Orlando Romeo, Orlando M. Romeo" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Publications – Romeo O. M.">
+  <meta property="og:description" content="Publications List for Orlando M. Romeo">
+  <meta property="og:image" content="http://omromeo.com/images/OrlandoMRomeo.jpg">
+  <meta property="og:url" content="http://omromeo.com/publications">
+  <meta property="og:type" content="website">
+  <!-- PAGE STYLINGS -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Links to your external stylesheet for custom styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Font Awesome for icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico?v=2">
+</head>
+
+<body>
+  <!-- Top Navigation Menu -->
+  <nav class="top-nav" id="navbar">
+    <script src="assets/js/nav-menu.js"></script>
+  </nav>
+
+    <!-- Sidebar -->
+  <div class="publications-page">
+    <aside class="pubs-sidebar">
+      <h2>Publications</h2>
+      
+      <h3>Metrics</h3>
+      <ul class="metrics-list">
+        <li><i class="fas fa-book"></i><span class="metric-label">Refereed Publications</span><span class="metric-value">32</span></li>
+        <li><i class="fas fa-star"></i><span class="metric-label">Total Citations</span><span class="metric-value">340</span></li>
+        <li><i class="fas fa-chart-column"></i><span class="metric-label">h-index</span><span class="metric-value">11</span></li>
+        <li><i class="fas fa-chart-bar"></i><span class="metric-label">¡10-index</span><span class="metric-value">12</span></li>
+      </ul>
+
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="https://scholar.google.com/citations?user=0c93-HMAAAAJ&hl=en&oi=ao" target="_blank">
+          <i class="fas fa-graduation-cap"></i>Google Scholar
+        </a></li>
+        <li><a href="https://orcid.org/0000-0002-4559-2199" target="_blank">
+          <i class="fa-brands fa-orcid"></i>ORCID
+        </a></li>
+        <li><a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=(database%3Aastronomy%20OR%20database%3Aphysics)&q=author%3A(%22romeo%2C%20o.%20m.%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank">
+          <i class="fa-solid fa-rocket"></i>NASA ADS
+        </a></li>
+      </ul>
+
+      <h3>Export</h3>
+      <ul>
+        <li>
+          <a href="data/omromeo_publications.bib" download>
+            <i class="fas fa-download"></i>Download BibTeX
+          </a>
+        </li>
+      </ul>
+      <p class="metric-last-updated"><em>Last Updated: September 2025</em></p>
+    </aside>
+
+    <!-- Publications -->
+    <main class="page-header-right"></h1>
+      <div id="publications-container">
+        <div id="publications-list"></div>
+      </main>
+    <!-- Bibtex Parser Code -->
+    <script src="assets/js/pub-bibtex-parser.js"></script>
+  </div> <!-- END .publications-page -->
+  
+
+  <!-- Main Footer Section -->
+  <script src="assets/js/main-footer.js"></script>
+  
+</body>
+
+
+</html>

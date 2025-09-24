@@ -1,0 +1,239 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   Outreach List
+   ---------------------- */
+.outreach-page {
+  display: flex;
+  align-items: stretch; /* ensures sidebar stretches with content */
+}
+/* Sidebar styling */
+.outreach-sidebar {
+  position: sticky;
+  top: var(--navbar-height); /* stays visible while scrolling */
+  bottom:0;
+  padding: 0rem 2rem;
+  margin:0;
+  color:#FFF;
+  height: calc(100vh - var(--navbar-height)); /* fill remaining viewport */
+  overflow-y: auto;     /* scroll inside if content taller than viewport */
+  align-self: flex-start; /* ensures it sticks independently of main content */
+  font-size: 1.8rem;
+  z-index:1;
+  flex: 0 0 30.5%; /* fixed width sidebar */
+  background-image: url('../../images/starwallpaper-side.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.outreach-sidebar h2 {
+  font-size: 2.2rem;
+  margin-top:0rem;
+  margin-bottom: 1.0rem;
+  border-bottom: 5px solid #ddd;
+  padding-bottom: 0rem;
+  color:#FFF;
+}
+.outreach-sidebar h3 {
+  font-size: 1.7rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0rem;
+  margin-top:20px;
+  margin-bottom:0px;
+}
+.categories-list {
+  list-style: none;       /* remove default bullets */
+  padding: 0;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+/* Sidebar category list */
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.15rem; /* text size */
+}
+
+.categories-list li {
+  display: flex;
+  align-items: flex-start; /* align icon top with text top */
+  gap: 10px;               /* spacing between icon and text */
+  margin-bottom: 1rem;
+}
+
+.categories-list li i {
+  width: 24px;           /* fixed width for all icons */
+  text-align: center;    /* centers icon in that space */
+  font-size: 1.15rem;    /* match text size */
+  line-height: 1.2;      /* aligns vertically better */
+}
+
+.outreach-sidebar p {
+  font-size: 1.15rem;
+  padding-bottom: 0rem;
+}
+
+.outreach-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+  font-size: 1.15rem;
+}
+.outreach-sidebar li {
+  margin: 0.8rem 0;
+  font-size: 1.15rem;
+}
+/* Increase space between icon and link*/
+.outreach-sidebar i {margin-right: 10px;}
+.outreach-sidebar a:hover {text-decoration: underline;color: var(--newlink-color);}
+.outreach-sidebar li > a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s;  
+}
+
+
+/* Container for outreach */
+#outreach-container {
+  margin: 0; 
+  font-size:12px;
+  padding: 1.25rem 1.5rem 0rem 1.5rem;  /* optional padding inside main content */
+  background-color: var(--backcolor-light);
+}
+/* outreach Year Header */
+.outreach-year {
+  font-size: 2.75em;       /* slightly smaller than h1 */
+  margin-top: 0rem;       /* space above the year heading */
+  margin-bottom: 1rem;  /* space below before the list starts */
+  font-weight: bold;      /* optional, to make it stand out */
+  border-bottom: 2px solid #000;
+}
+/* Presentations lists */
+.outreach-list {padding-left: 20px;margin-bottom: 40px;margin-top: 0px;text-align: left;/* added to justify the text */
+    font-size: 1.3rem;  /* adjust to taste */
+    line-height: 1.3;    /* improves readability */
+    list-style: none; /* remove default bullets */
+} 
+/* For each individual item*/
+.outreach-list li {margin-bottom: 28px;margin-right: 10%;}
+.outreach-list i {
+  margin-right: 8px;
+  color: var(--accent-color, #444);
+}
+.outreach-desc {
+  display: block;
+  margin-top: 0rem;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+.outreach-entry {
+  display: flex;
+  align-items: flex-start;
+}
+
+.outreach-icon {
+  display: flex;
+  justify-content: center;  /* center icon horizontally */
+  align-items: flex-start;  /* align icon with top of text */
+  width: 28px;              /* fixed width for all icons */
+  margin-right: 10px;       /* spacing between icon and text */
+}
+
+.outreach-text {
+  flex: 1;            /* take up remaining space */
+}
+/* Nested outlet/news sublist */
+.outreach-sublist {
+  list-style-type: disc;
+  margin-top: 0.1rem;
+  margin-left: 20px;
+  font-size: 0.95rem;
+}
+
+.outreach-sublist li {
+  margin-bottom: 0.2rem;
+}
+/* Sidebar Presentation gallery container */
+.outreach-gallery {
+  position: relative;
+  width: 100%;;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  overflow: hidden;
+  object-position:center;
+}
+
+/* Stack all figures on top of each other */
+.outreach-gallery figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;       /* full height to overlay */
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  display:block;
+}
+
+.outreach-gallery figure.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Image styling */
+.outreach-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* maintain aspect ratio while filling container */
+  object-position: center;
+  display: block;
+}
+
+/* Caption styling (appears over bottom of image) */
+.outreach-gallery figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.3rem;
+  z-index: 2;
+}
+
+.outreach-last-updated p {
+  font-size: 0.9rem;
+  color: #fff;       /* lighter text color for subtlety */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 800px) {
+  .outreach-page {
+    flex-direction: column; /* stack sidebar on top of main content */
+    align-items: center;    /* center horizontally */
+  }
+  .outreach-sidebar {
+    position: relative;     /* remove sticky behavior on mobile */
+    margin-top: var(--navbar-height);
+    bottom: auto;
+    width: 100%;           /* full width of screen */
+    max-width: 100vw;      /* ensure no horizontal overflow */
+    margin: 0;         /* space around sidebar */
+    text-align: center;     /* center headings and links if desired */
+    flex: none;             /* ignore flex sizing */
+    box-sizing: border-box; /* includes padding in width calculation */
+    height:auto;
+  }
+  .outreach-sidebar h2,
+  .outreach-sidebar h3 {
+    text-align: center;     /* center headings */
+  }
+}

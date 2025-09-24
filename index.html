@@ -1,0 +1,129 @@
+<!-- Main Homepage -->
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<!-- HEAD CONTENT-->
+<head>
+  <!-- WEB PAGE TITLE-->
+  <title>Orlando M. Romeo</title>
+  <!-- METADATA -->
+  <meta charset="UTF-8"/> <!-- Sets character encoding so symbols/text display correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Makes site mobile-friendly (scales properly on phones & tablets) -->
+  <meta name="author" content="Orlando M. Romeo" />
+  <meta name="description" content="Homepage for Orlando M. Romeo, a Postdoctoral Researcher at UC Berkeley's Space Sciences Lab, with research in heliophysics, planetary science, and geospace." />
+  <meta name="keywords" content="Orlando Romeo, Orlando M. Romeo, space physics, heliophysics, solar wind, magnetism, Mars, Parker Solar Probe, CME, sun, SSL, UC Berkeley" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Orlando M. Romeo">
+  <meta property="og:description" content="Homepage for Orlando M. Romeo, a Postdoctoral Researcher at UC Berkeley's Space Sciences Lab, with research in heliophysics, planetary science, and geospace.">
+  <meta property="og:image" content="http://omromeo.com/images/OrlandoMRomeo.jpg">
+  <meta property="og:url" content="http://omromeo.com/">
+  <meta property="og:type" content="website">
+  <!-- PAGE STYLINGS -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Links to your external stylesheet for custom styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Font Awesome for icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico?v=2">
+</head>
+
+
+<!-- Main HTML Body visible on page -->
+<body>
+  <!-- Top Navigation Menu -->
+  <nav class="top-nav" id="navbar">
+    <script src="assets/js/nav-menu.js"></script>
+  </nav>
+  
+
+  <!-- Home Page Cover Section -->
+  <header class="cover-photo">
+    <div class="profile-container">
+      <img src="images/OrlandoMRomeo.jpg" 
+          alt="Profile Picture" 
+          class="profile-picture">
+      <div class="profile-text">
+        <h1>Orlando M. Romeo, Ph.D.</h1>
+        <p>Postdoctoral Researcher</p>
+        <p>Space Sciences Lab (SSL)   |   UC Berkeley</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content of the homepage -->
+  <main class="main-content">
+    <section class="about-gallery-container">
+      <div class="about-text">
+        <p>Orlando Romeo is a Postdoctoral Researcher at the <a href="https://www.ssl.berkeley.edu/" target="_blank" rel="noopener noreferrer">Space Sciences Laboratory (SSL)</a> at the 
+          University of California, Berkeley. He primarily studies solar wind electron dynamics observed by Parker Solar Probe, and contributes to the calibration of the SPAN-E instrument.        
+          His research focuses on physical processes in the inner Heliosphere, including plasma physics, planetary magnetism, and solar eruptive events. 
+          His work combines data science, computational modeling, and machine learning techniques to analyze and interpret complex space plasma phenomena.
+          In addition, Orlando has extensive laboratory experience and practical expertise with space instrumentation, including the development, testing, and deployment of various instruments.</p>
+        <!-- New buttons -->
+        <div class="about-buttons">
+          <a href="/about.html" class="about-btn">About Me</a>
+          <a href="/cv.html" class="about-btn">CV</a>
+          <a href="/contact.html" class="about-btn">Contact Me</a>
+        </div>
+      </div>
+      <div class="main-gallery"></div>
+    </section>
+    <!-- Start cycling the gallery -->
+    <script src="assets/js/main-gallery-cycle.js"></script>
+
+    <!-- Research Areas Section -->
+    <section class="research-areas">
+      <h2><a href="/research.html">Research Areas</a></h2>
+      <div class="research-columns">
+        
+        <a href="/heliophysics.html" class="research-category">
+          <h3>Heliophysics</h3>
+          <img src="images/research/Helio.png" 
+            alt="Research Picture" 
+            class="research-picture">
+          <ul>
+            <li>Solar Wind Electron Dynamics</li>
+            <li>Wave-Particle Interactions</li>
+            <li>Coronal Mass Ejections</li>
+            <li>Solar Flares</li>
+          </ul>
+        </a>
+
+        <a href="/planetary.html" class="research-category">
+          <h3>Planetary</h3>
+          <img src="images/research/Planetary.png" 
+            alt="Research Picture" 
+            class="research-picture">
+          <ul>
+            <li>Planetary Magnetospheres</li>
+            <li>Crustal Magnetization</li>
+            <li>Planetary Surfaces</li>
+            <li>Seismology</li>
+          </ul>
+        </a>
+
+        <a href="/geospace.html" class="research-category">
+          <h3>Geospace</h3>
+          <img src="images/research/Geospace.png" 
+            alt="Research Picture" 
+            class="research-picture">
+          <ul>
+            <li>Space Weather Forecasting</li>
+            <li>Wave-Particle Interactions</li>
+            <li>Radiation Belt Modeling</li>
+          </ul>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Main Footer Section -->
+  <script src="assets/js/main-footer.js"></script>
+  
+</body>
+
+
+</html>

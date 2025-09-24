@@ -1,0 +1,45 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   Main Footer Styling
+   ---------------------- */
+.main-footer {
+  margin-top: 0px;         /* spacing above footer */
+  padding: 15px 0;
+  text-align: center;
+  background: var(--backcolor-dark);      /* light background */
+  font-size: 0.95em;
+  position: relative; /* not fixed */
+  z-index: 10; /* higher than sidebar */
+  clear: both; /* pushes it below floats */
+}
+.footer-icons {margin-bottom: 8px;}
+.footer-icons a {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 1.1em;         /* icon size */
+  color: #fff;              /* default color */
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.footer-icons a i {
+  margin-right: 6px; /* spacing between icon and label */
+}
+.footer-icons a:active,
+/*.footer-icons a:focus,*/
+.footer-icons a:hover {
+  color: var(--newlink-color);           /* hover color */
+}
+.footer-copyright {
+  margin: 0 15px;
+  font-size: 0.9em;
+  color: #999;
+}
+/* Mobile: stack vertically - keep size of screen */
+@media screen and (max-width: 725px) {
+  .footer-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-icons a {font-size: 1em;}
+}

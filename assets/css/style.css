@@ -1,0 +1,82 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* Import navbar styles */
+@import url('about.css');
+@import url('contact.css');
+@import url('cv.css');
+@import url('footer.css');
+@import url('main-gallery.css');
+@import url('navbar.css');
+@import url('outreach.css');
+@import url('subresearch.css');
+@import url('presentations.css');
+@import url('profile.css');
+@import url('publications.css');
+@import url('research.css');
+@import url('teaching.css');
+
+
+/* ----------------------
+   Global Values
+   ---------------------- */
+:root { /* update this in one place*/
+  --navbar-height: 62px;        /* Top Navigation Bar Menu Height */
+  --backcolor-dark: #000000;  /* Dark Background Color*/
+  --backcolor-light: #FFFFFF; /* Light Background Color */
+  --newlink-color: #A20055;   /* New Link Color for Menu items, downloading, etc. */
+}
+body {
+  font-family: "Roboto",sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--backcolor-dark);
+  color: var(--backcolor-dark);
+  line-height: 1.6;
+}
+
+/*=============================================================================*/
+/*=============================================================================*/
+
+/* Page container */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Headers */
+h1, h2 {
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 0px;     /* width of sidebar + margin */
+  margin-right: 0px;     /* width of sidebar + margin */
+  margin-top: 0px;       /* height of navbar */
+  padding: 1rem;
+  background-color: var(--backcolor-light);
+}
+
+/* Main Presentations Content */
+.page-header-right {
+  flex: 1;margin:0;background-color: var(--backcolor-light);
+  padding-top: var(--navbar-height);
+  font-size: 2.5em;       /* make it bigger, adjust as needed */
+}
+
+/* Links */
+a {color: #2563eb;}
+a:hover {color: #1d4ed8;}
+
+
+
+

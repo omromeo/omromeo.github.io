@@ -1,0 +1,149 @@
+[
+  {
+    "year": "2025",
+    "category": "service",
+    "title": "SSL ASSURE REU Program",
+    "role": "Poster Judge",
+    "description": "Served as a judge for Advancing Space Science through Undergraduate Research Experience (ASSURE) student research posters, providing feedback and evaluations.",
+    "list": []
+  },
+  {
+    "year": "2025",
+    "category": "community",
+    "title": "California Academy of Sciences",
+    "role": "Data Analysis Volunteer",
+    "description": "Analyzed and visualized large datasets for the California Insect Barcode Initiative (CIBI) project.",
+    "list": []
+  },
+  {
+    "year": "2024",
+    "category": "media",
+    "title": "FOXSI-4 Sounding Rocket Launch News",
+    "role": "Science Article Author",
+    "description": "The FOXSI-4 sounding rocket successfully launched and observed an M-class flare in real-time on Apr 17th 2024, covered by this <a href='https://www.ssl.berkeley.edu/foxsi-4-observes-large-solar-flare/' target='_blank'>SSL article</a>.",
+    "list": []
+  },
+  {
+    "year": "2024",
+    "category": "community",
+    "title": "California Academy of Sciences SuperNatural Event",
+    "role": "Science Volunteer",
+    "description": "Engaged the public in hands-on, Halloween-themed science activities at the California Academy of Sciences.",
+    "list": []
+  },
+  {
+    "year": "2024",
+    "category": "service",
+    "title": "SSL ASSURE REU Program",
+    "role": "Poster Judge",
+    "description": "Served as a judge for Advancing Space Science through Undergraduate Research Experience (ASSURE) student research posters, providing feedback and evaluations.",
+    "list": []
+  },
+  {
+    "year": "2023",
+    "category": "talk",
+    "title": "SSL ASSURE REU Program",
+    "role": "Guest Speaker",
+    "description": "Presented on different planetary environments to Advancing Space Science through Undergraduate Research Experience (ASSURE) students at SSL.",
+    "list": []
+  },
+  {
+    "year": "2023",
+    "category": "news",
+    "title": "Press Release on <em>Romeo et al. 2023</em> manuscript",
+    "role": "Featured Article",
+    "description": "Research findings on September 5th \"Labor Day\" CME released in <a href='https://www.jhuapl.edu/news/news-releases/230915b-nasa-parker-probe-close-encounter-with-coronal-mass-ejection-cme' target='_blank'>article</a> by the Johns Hopkins Applied Physics Laboratory, and were covered by multiple news and social media outlets:",
+    "list": [
+      { "name": "Scientific American", "url": "https://www.scientificamerican.com/article/massive-sun-outburst-smacks-nasa-spacecraft/" },
+      { "name": "Forbes", "url": "https://www.forbes.com/sites/jamiecartereurope/2023/09/17/nasas-closest-spacecraft-to-the-sun-flies-through-a-colossal-solar-explosion/" },
+      { "name": "Live Science", "url": "https://www.livescience.com/space/the-sun/watch-nasa-spacecraft-flies-through-a-violent-solar-explosion-for-1st-time-ever-and-survives-unscathed" },
+      { "name": "Instagram", "url": "https://www.instagram.com/reel/CxMBUG8sAO1/" },
+      { "name": "Twitter", "url": "https://x.com/JHUAPL/status/1703170675127599552" },
+      { "name": "Interesting Engineering", "url": "https://interestingengineering.com/science/parker-solar-probe-traverses-cme-touches-sun" },
+      { "name": "Universe Space Technology", "url": "https://universemagazine.com/en/parker-solar-probe-captures-its-journey-through-a-powerful-solar-storm/?srsltid=AfmBOopbf_DPT8Qw5HB_SaPpsfVSIs8IYhlkaZtlAfzBP46drnrGzCmr" },
+      { "name": "The Indian Express", "url": "https://indianexpress.com/article/technology/science/nasa-parker-solar-probe-takes-closest-ever-plasma-observations-8947863/" },
+      { "name": "King Seattle News", "url": "https://www.king5.com/article/news/nation-world/nasa-parker-solar-probe-captures-eruption-from-sun-on-camera/507-2929d5b4-311f-4fc7-ac28-f99e7bc220a2" },
+      { "name": "Peta Pixel", "url": "https://petapixel.com/2023/09/20/nasas-parker-solar-probe-photographs-its-journey-through-a-solar-storm/" }
+    ]
+  },
+  {
+    "year": "2023",
+    "category": "community",
+    "title": "California Academy of Sciences",
+    "role": "Volunteer",
+    "description": "Assisted in field expeditions to collect specimens for the California Insect Barcode Initiative (CIBI), contributing to a statewide biodiversity database.",
+    "list": []
+  },
+  {
+    "year": "2022",
+    "category": "service",
+    "title": "SSL ASSURE REU Program",
+    "role": "Application Reviewer",
+    "description": "Reviewed undergraduate student applications for the Advancing Space Science through Undergraduate Research Experience (ASSURE) program at SSL.",
+    "list": []
+  },
+  {
+    "year": "2022",
+    "category": "community",
+    "title": "California Academy of Sciences",
+    "role": "Volunteer",
+    "description": "Assisted in field expeditions to collect specimens for the California Insect Barcode Initiative (CIBI), contributing to a statewide biodiversity database.",
+    "list": []
+  },
+  {
+    "year": "2020",
+    "category": "workshop",
+    "title": "UMD SPS Group Meeting",
+    "role": "Lead Python Workshop Instructor",
+    "description": "Designed and led an introductory Python coding workshop for undergraduate students during the weekly Society of Physics Student Meeting at UMD.",
+    "list": []
+  },
+  {
+    "year": "2019",
+    "category": "leadership",
+    "title": "UMD Society of Physics Students",
+    "role": "President",
+    "description": "Led the University of Maryland, College Park Society of Physics Students Chapter as President, overseeing chapter operations and initiatives to strengthen student engagement.",
+    "list": []
+  },
+  {
+    "year": "2019",
+    "category": "community",
+    "title": "Sigma Pi Sigma Physics Congress",
+    "role": "UMD Booth Volunteer",
+    "description": "Represented the UMD Physics Department during the Sigma Pi Sigma University Showcase, engaging prospective students and highlighting academic and research opportunities.",
+    "list": []
+  },
+  {
+    "year": "2019",
+    "category": "workshop",
+    "title": "UMBC SPS National Zone 4 Meeting",
+    "role": "Lead Python Workshop Instructor",
+    "description": "Planned and led a Python coding workshop on N-body solvers for undergraduate students during SPS National Zone 4 Meeting at UMBC.",
+    "list": []
+  },
+  {
+    "year": "2018",
+    "category": "workshop",
+    "title": "UMD SPS National Zone 4 Meeting",
+    "role": "Lead Arduino Workshop Instructor",
+    "description": "Designed and led an introductory Arduino coding workshop during SPS National Zone 4 Meeting at UMD, engaging undergraduate students in hands-on programming.",
+    "list": []
+  },
+  {
+    "year": "2018",
+    "category": "leadership",
+    "title": "UMD Society of Physics Students",
+    "role": "Vice President",
+    "description": "Served as Vice President of the University of Maryland, College Park Society of Physics Students, providing leadership and direction for chapter activities.",
+    "list": []
+  },
+  {
+    "year": "2017",
+    "category": "leadership",
+    "title": "UMD Society of Physics Students",
+    "role": "Vice President",
+    "description": "Served as Vice President of the University of Maryland, College Park Society of Physics Students, providing leadership and direction for chapter activities.",
+    "list": []
+  }
+]

@@ -1,0 +1,50 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   Profile Cover on Home Page
+   ---------------------- */
+.cover-photo {
+  width: 100%;
+  height: 350px;                 /* Adjust as needed */
+  background-image: url('../../images/starwallpaper.png');
+  background-size: cover;
+  background-position: center;
+  /*position: relative;*/
+  display: flex;
+  justify-content: center;  /* horizontal centering */
+  align-items: center;           /* vertically center content */
+  padding: 5 5%;                 /* horizontal padding */
+  box-sizing: border-box;
+  margin-top: var(--navbar-height);            /* adjust this to the height of your nav menu */
+}
+
+/* Profile container: holds picture and text */
+.profile-container {display: flex;
+  align-items: center;           /* vertical alignment */
+  gap: 40px;                     /* space between picture and text */
+}
+
+/* Profile picture */
+.profile-picture {
+  width: 250px;                  /* desktop size */
+  height: auto;
+  border-radius: 50%;
+  border: 4px solid white;
+  flex-shrink: 0;                /* prevent shrinking on resize */
+  object-fit: cover;
+}
+
+/* Text next to profile */
+.profile-text {color: white;}
+.profile-text h1 {color: white; margin: 0 0 5px 0; font-size: 2.5em;} /* top right bottom left */
+.profile-text p {color: white; margin: 0 0 0px 2px; font-size: 1.25em;} /* top right bottom left */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cover-photo {height: 300px; padding: 0 3%;}
+  .profile-container {flex-direction: column;      /* stack picture on top of text */
+    align-items: center; text-align: center; gap: 10px;}
+  .profile-picture {width: 100px; height: 100px;}
+  .profile-text h1 {font-size: 1.75em;}
+  .profile-text p {font-size: 1.05em;}
+}

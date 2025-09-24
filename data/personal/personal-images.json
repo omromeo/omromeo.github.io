@@ -1,0 +1,73 @@
+[
+  {
+    "src": "/images/personal/Athens2024.jpg",
+    "alt": "Athens, Greece (2024)",
+    "caption": "Athens, Greece (2024)"
+  },
+  {
+    "src": "/images/personal/Alaska2023.jpg",
+    "alt": "Endicott Arms Glacier, Alaska (2023)",
+    "caption": "Endicott Arms Glacier, Alaska (2023)"
+  },
+  {
+    "src": "/images/personal/Busan2024.jpg",
+    "alt": "Haedong Yonggungsa Temple, South Korea (2024)",
+    "caption": "Haedong Yonggungsa Temple, South Korea (2024)"
+  },
+  {
+    "src": "/images/personal/Santorini2024.jpg",
+    "alt": "Santorini, Greece (2024)",
+    "caption": "Santorini, Greece (2024)"
+  },
+  {
+    "src": "/images/personal/Hawaii2022.png",
+    "alt": "Somewhere off the Hawaiian Coast (2022)",
+    "caption": "Somewhere off the Hawaiian Coast (2022)"
+  },
+  {
+    "src": "/images/personal/Capri2024.jpg",
+    "alt": "Capri, Italy (2024)",
+    "caption": "Capri, Italy (2024)"
+  },
+  {
+    "src": "/images/personal/CA2024.jpg",
+    "alt": "Point Montara, CA (2024)",
+    "caption": "Point Montara, CA (2024)"
+  },
+
+  {
+    "src": "/images/personal/Carizzo2023.jpg",
+    "alt": "Carizzo Plains, CA (2023)",
+    "caption": "Carizzo Plains, CA (2023)"
+  },
+  {
+    "src": "/images/personal/Temple2024.jpg",
+    "alt": "Temple of Hephaestus, Greece (2024)",
+    "caption": "Temple of Hephaestus, Greece (2024)"
+  },
+  {
+    "src": "/images/personal/Tahoe2021.jpg",
+    "alt": "Lake Tahoe, CA (2021)",
+    "caption": "Lake Tahoe, CA (2021)"
+  },
+  {
+    "src": "/images/personal/Tam2023.jpg",
+    "alt": "Mt. Tam, CA (2023)",
+    "caption": "Mt. Tam, CA (2023)"
+  },
+  {
+    "src": "/images/personal/Florida2021.jpg",
+    "alt": "Panama City, Florida (2021)",
+    "caption": "Panama City, Florida (2021)"
+  },
+  {
+    "src": "/images/personal/SFMarathon2021.jpg",
+    "alt": "SF Half-Marathon, CA (2021)",
+    "caption": "SF Half-Marathon, CA (2021)"
+  },
+  {
+    "src": "/images/personal/Flowers2023.jpg",
+    "alt": "Conservatory of Flowers=, CA (2023)",
+    "caption": "Conservatory of Flowers, CA (2023)"
+  }
+]

@@ -1,0 +1,291 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   About Me: Left Side
+   ---------------------- */
+.about-page {
+  display: flex;
+  align-items: stretch; /* ensures sidebar stretches with content */
+}
+/* Sidebar styling */
+.about-sidebar {
+  position: sticky;
+  top: var(--navbar-height); /* stays visible while scrolling */
+  bottom:0;
+  padding: 0rem 2rem;
+  margin:0;
+  color:#FFF;
+  height: calc(100vh - var(--navbar-height)); /* fill remaining viewport */
+  overflow-y: auto;     /* scroll inside if content taller than viewport */
+  align-self: flex-start; /* ensures it sticks independently of main content */
+  font-size: 1.8rem;
+  z-index:1;
+  flex: 0 0 300px; /* fixed width sidebar */
+  background-image: url('../../images/starwallpaper-side.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.about-photo {
+  width: 80%;
+  border-radius: 50%;
+  margin: 30px auto 1rem auto; /* top, right/left (auto centers), bottom */
+  border: 3px solid #fff;
+  max-width:200px;
+  display: block; /* ensures it can be centered */
+}
+.about-sidebar h2 {
+  font-size: 2rem;
+  margin-top:0rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 5px solid #ddd;
+  padding-bottom: 0rem;
+  color:#FFF;
+}
+.about-sidebar h3 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0rem;
+  margin: 1rem 0;
+}
+.categories-list {
+  list-style: none;       /* remove default bullets */
+  padding: 0;
+  margin: 0;
+  font-size: 1.15rem;
+}
+/* Sidebar category list */
+.about-categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.15rem; /* text size */
+}
+.about-categories-list li {
+  display: flex;
+  align-items: flex-start; /* align icon top with text top */
+  gap: 10px;               /* spacing between icon and text */
+  margin-bottom: 1rem;
+}
+.about-categories-list li i {
+  width: 24px;           /* fixed width for all icons */
+  text-align: center;    /* centers icon in that space */
+  line-height: 1.2;      /* aligns vertically better */
+}
+.about-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+}
+.about-sidebar li {
+  margin: 0.8rem 0;
+  font-size: 1.15rem;
+}
+/* Increase space between icon and link*/
+.about-sidebar i {margin-right: 10px;}
+.about-sidebar a:hover {text-decoration: underline;color: var(--newlink-color);}
+.about-sidebar li > a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s;  
+}
+section {
+  scroll-margin-top: 60px; /* adjust number to your header/sidebar height */
+}
+/* ----------------------
+   About Me: Right Side
+   ---------------------- */
+/* Container for publications */
+#about-container {
+  margin: 0; 
+  font-size:12px;
+  padding: 0rem 1.5rem 0rem 1.5rem;  /* optional padding inside main content */
+  background-color: var(--backcolor-light);
+}
+/* Publication lists */
+.about-list {   
+  list-style-type: disc;
+  margin-top: 2px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  padding-left: 20px;
+  text-align: justify;} /* added to justify the text */
+/* For each individual item*/
+.about-list li {margin-bottom: 7px;}
+
+#about-container h2 {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0rem;
+}
+
+#about-container h3 {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+#about-container p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill {
+  background: #f0f6fc;
+  border: 1px solid #070060;
+  color: #070060;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.skill:hover {
+  background: #070060;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Container for all experience cards */
+.experience-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* spacing between cards */
+  margin-top: 1rem;
+}
+
+/* Individual card styling */
+.experience-card {
+  display: flex;
+  font-size: 1.15rem;
+  gap: 0.5rem; /* space between date and content */
+  padding: 0.75rem 1rem;
+  background-color: #fafafa; /* card background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  background-color: #fefefe; /* card background */
+}
+
+/* Date column */
+.experience-date {
+  font-weight: bold;
+  width: 175px; /* fixed width for alignment */
+  color: var(--newlink-color);
+  text-align: left;
+}
+
+/* Content column */
+.experience-content {
+  text-align: left;
+  line-height: 1.5;
+  flex: 1;
+}
+
+
+
+.personal-gallery-container {
+  width: 90%;
+  max-width:800px;
+  object-position:center;
+  margin: auto;           /* vertical alignment */
+  align-items: center;           /* vertical alignment */
+}
+
+/* Personal gallery */
+.personal-gallery {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  margin-bottom:20px;
+  overflow: hidden;
+  object-position:center;
+}
+
+/* Stack all figures on top of each other */
+.personal-gallery figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;       /* full height to overlay */
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  display:block;
+}
+
+.personal-gallery figure.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Image styling */
+.personal-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* maintain aspect ratio while filling container */
+  object-position: center;
+  display: block;
+}
+
+/* Caption styling (appears over bottom of image) */
+.personal-gallery figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.3rem;
+  z-index: 2;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 1200px) {
+  .about-page {
+    flex-direction: column; /* stack sidebar on top of main content */
+    align-items: center;    /* center horizontally */
+  }
+  .about-sidebar {
+    position: relative;     /* remove sticky behavior on mobile */
+    margin-top: var(--navbar-height);
+    bottom: auto;
+    width: 100%;           /* full width of screen */
+    max-width: 100vw;      /* ensure no horizontal overflow */
+    margin: 0;         /* space around sidebar */
+    text-align: center;     /* center headings and links if desired */
+    flex: none;             /* ignore flex sizing */
+    box-sizing: border-box; /* includes padding in width calculation */
+    height:auto;
+  }
+  .about-sidebar h2,
+  .about-sidebar h3 {
+    text-align: center;     /* center headings */
+  }
+
+.personal-gallery-container {
+  margin: auto;           /* vertical alignment */
+}
+
+
+}

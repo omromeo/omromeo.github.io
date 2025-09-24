@@ -1,0 +1,177 @@
+/* Teaching Page */
+
+/* Only CV page background */
+body#teaching {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../images/starwallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+      display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  }
+/* Make main content grow to fill space */
+main.teaching-container {
+  flex: 1 0 auto;
+}
+
+  
+/* Header */
+.teaching-header h1{margin-top:75px; margin-bottom:0;padding-bottom:0;
+  color:var(--backcolor-light);
+  text-align:center;
+  font-size:3rem;
+}
+
+/* Container for the three boxes */
+.teaching-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Info boxes */
+.teaching-info-box {
+  background: rgb(218, 218, 218);
+  border-radius: 12px;
+  padding: 0.75rem;
+  padding-top:0.1rem;
+  width: 27%;
+  max-height: 575px;
+  display: flex;
+  flex-direction: column;
+}
+
+.teaching-info-box h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-top:0;
+  margin-top:0;
+  font-size: 1.5rem;
+  color: var(--newlink-color);
+}
+
+/* scrollable list area */
+.teaching-scroll-content {
+  overflow-y: auto;
+  flex: 1 1 auto; /* take remaining space */
+  padding-right: 7px; /* room for scrollbar */
+}
+
+/* timeline-style (year left, details right) */
+.teaching-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.teaching-timeline li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.teaching-timeline li:last-child {
+  border-bottom: none;
+}
+
+/* Year column on left */
+.teaching-timeline .teaching-year {
+  width: 72px;       /* fixed narrow column for year */
+  flex: 0 0 72px;
+  color: #666;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: block;
+  line-height: 1.2;
+  padding-top: 2px;
+}
+
+/* Details column */
+.teaching-timeline .teaching-details {
+  flex: 1 1 auto;
+}
+.teaching-timeline .teaching-details strong {
+  display: block;
+  color: #111;
+  margin-bottom: 3px;
+  line-height: 1.05;
+}
+
+.teaching-timeline .teaching-details i {
+  display: block;
+  color: #111;
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+  line-height: 1.05;
+}
+
+.teaching-timeline .teaching-meta {
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  text-align: left;
+
+}
+
+/* WebKit / Blink (Chrome, Edge, Safari) */
+.teaching-scroll-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.teaching-scroll-content::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.teaching-scroll-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #070060, #000);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.teaching-scroll-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #070060, #000);
+}
+
+/* Firefox */
+.teaching-scroll-content {
+  scrollbar-width: thin; /* options: auto | thin | none */
+  scrollbar-color: #070060 rgba(0,0,0,0.05);
+  border-radius: 10px; /* rounds the container so the bar looks softer */
+}
+
+.teaching-picture {
+  display: inline-block;   /* works with text-align:center */
+  margin: 0 auto 10px auto;
+  height: 180px;
+  max-width: 90%;
+  border-radius: 10px;
+  align-items: center;
+  border: 4px solid white;
+  width:auto;
+  border-radius:10px;
+  object-fit: cover;
+
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media screen and (max-width: 1200px) {
+  .teaching-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 18px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .teaching-info-box {
+    width: 90%;
+    max-width: 720px;
+    height: 500px; /* shorter on mobile to keep things concise */
+    margin: 0 auto;
+  }
+}

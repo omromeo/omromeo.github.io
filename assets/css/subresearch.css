@@ -1,0 +1,138 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   Sub-Research Page Styling
+   ---------------------- */
+/* Only Sub-Research page background */
+body#subresearch-page {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../images/starwallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+.subresearch-header,
+.subresearch-header h1{margin-top:75px; margin-bottom:0;padding-bottom:0;
+  color:var(--backcolor-light);
+  text-align:center;
+  font-size:3rem;
+  margin-right:1rem;
+  margin-left:1rem;
+  margin-bottom:0;
+  padding-bottom:0;
+}
+.subresearch-header p, 
+.subresearch-header a{
+  margin:0;
+  padding:0;
+  font-size:1.1rem;
+  color: var(--backcolor-light);
+}
+.subresearch-header a:hover {
+  color: var(--newlink-color);           /* hover color */
+}
+/* Planetary Research Container */
+.subresearch-container {
+  width: 85%;
+  max-width: 1000px;
+  margin: 15px auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* space between projects */
+}
+
+/* Individual Research Project Card */
+.research-project {
+  background-color: var(--backcolor-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  padding: 0.9rem 2rem 2rem 2rem;
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-project:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+.research-project h2 {
+  margin: 0.35rem 0 1rem 0;
+  font-size: 2.15rem;
+  color: var(--header-color, #222);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.research-project h3 {
+  margin: 1rem 0 0 0;
+  font-size: 1.5rem;
+  color: var(--header-color, #222);
+  text-align: center;
+  line-height: 1;
+}
+
+.research-project p {
+  line-height: 1.3;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.research-links {
+  margin-top: 0.5rem;
+  text-align:center;
+  text-decoration: none;
+}
+
+.research-links a {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  color: var(--newlink-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.research-links a:hover {
+  text-decoration: underline;
+  color: var(--newlink-color);
+
+}
+
+/* Research Image */
+.research-project img {
+  width: 100%;
+  height: auto;            /* maintain aspect ratio */
+  max-width: 700px;        /* prevent it from being too wide */
+  max-height: 400px;       /* limit height */
+  border-radius: 8px;
+  object-fit: scale-down;       /* fill container without stretching */
+  display: block;          
+  margin: 0 auto;          /* center horizontally */
+}
+/* Desktop styling */
+.research-project .research-video {
+  width: 100%;
+  height: auto;            /* maintain aspect ratio */
+  max-width: 700px;        /* prevent it from being too wide */
+  max-height: 400px;       /* limit height */
+  border-radius: 8px;
+  object-fit: scale-down;  /* fill container without stretching */
+  display: block;
+  margin: 0 auto;          /* center horizontally */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .research-project img {
+    max-width: 90%;        /* stay within container margins */
+    max-height: none;      /* let height scale naturally */
+  }
+  .research-project .research-video {
+    max-width: 90%;        /* stay within container margins */
+    max-height: none;      /* let height scale naturally */
+  }
+}

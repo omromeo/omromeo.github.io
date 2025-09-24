@@ -1,0 +1,243 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   Top Navigation Bar
+   ---------------------- */
+.top-nav {
+  display: flex;
+  justify-content: space-between; /* left and right */
+  align-items: center;
+  background-color: var(--backcolor-dark);
+  padding: 5px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* ----------------------
+   Left Side (Logo)
+   ---------------------- */
+.top-nav-left  {
+  display: flex;
+  align-items: center; /* vertical centering */
+}
+/* Anchor (the link wrapper) */
+.top-nav-left .top-nav-logo {
+  display: flex;       /* align image + text on one line */
+  text-decoration: none;      /* remove underline */
+  align-items: center;     /* vertically align both */
+}
+/* Logo image */
+.top-nav-left .top-nav-logo img {
+  height: 42px;
+  width: auto;
+}
+/* Logo text */
+.top-nav-left .top-nav-logo span {
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  padding-left: 8px;
+  text-decoration: none;
+}
+/* ----------------------
+   Right Side (Links)
+   ---------------------- */
+.top-nav-right {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: static;
+  transform: none;
+  opacity: 1;
+  align-items: center; /* vertical centering */
+}
+/* When menu is active */
+.top-nav-right.active {
+  transform: translateX(0); /* slide in */
+  opacity: 1;
+}
+
+/* Links styling */
+.top-nav-right li > a {
+  color: var(--backcolor-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.top-nav-right li > a:hover {
+  color: var(--newlink-color);
+}
+
+
+/* Dropdown menus */
+.top-nav-right li.dropdown {
+  position: relative;
+}
+
+.top-nav-right li.dropdown .dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  /*min-width: 160px;*/
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;              /* collapsed */
+  overflow: hidden;           /* hide content */
+  opacity: 0;                 /* invisible */
+  transform: translateY(-10px); /* shifted up slightly */
+  transition: all 0.6s ease;  /* smooth animation */
+}
+
+.top-nav-right li.dropdown .dropdown-content li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.top-nav-right li.dropdown .dropdown-content li a:hover {
+  color: var(--newlink-color);
+}
+
+/* Show dropdown on hover (desktop only) */
+.top-nav-right li.dropdown:hover .dropdown-content {
+  max-height: 500px;     /* big enough for your menu */
+  opacity: 1;
+  transform: translateY(0); /* shift into place */
+}
+
+
+.top-nav-right li.dropdown .dropdown-content.active {
+  max-height: 500px; /* large enough for your menu */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ----------------------
+   Hamburger Icon (Mobile)
+   ---------------------- */
+.hamburger {
+  display: none; /* hidden on desktop */
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.3s ease; /* smooth movement */
+  position: relative;
+  z-index: 1100; /* above navbar items */
+}
+
+.dropdown-arrow {
+  cursor: pointer;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  font-size: 1.2em;  /* slightly larger than normal text */
+  transform: scale(1.4);   /* visually enlarge arrow */
+  vertical-align: middle;  /* align it with text baseline */
+}
+
+/* ----------------------
+   Responsive (Mobile)
+   ---------------------- */
+
+@media screen and (max-width: 1200px) {
+
+/* Nav menu hidden offscreen by default */
+  #nav-menu {
+    display: flex;               /* keep it rendered */
+    flex-direction: column;
+    width: 170px;
+    background-color: #000;
+    top: var(--navbar-height);
+    bottom: auto;
+    right: 0;
+    position: fixed;
+    border-radius: 0 0 0 0px;
+    max-height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    opacity: 0.95;
+    scrollbar-width: thin;
+
+    /* Animation setup */
+    transform: translateX(100%);  /* start offscreen to the right */
+    transition: transform 0.4s ease-in-out;
+  }
+
+  /* When menu is active → slide into view */
+  #nav-menu.active {
+    transform: translateX(0);
+  }
+
+  /* Nav items inside */
+  #nav-menu li {
+    text-align: left;
+    list-style: none;
+  }
+
+  #nav-menu li > a {
+  display: flex;
+  justify-content: space-between; /* space text and arrow */
+  align-items: center;           /* vertically center both */
+}
+
+  /* Mobile dropdown: tap to toggle */
+  .top-nav-right li.dropdown .dropdown-content {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    background-color: #111;
+    flex-direction: column;
+
+  }
+  .top-nav-right li.dropdown .dropdown-content li a {
+    color: #fff;
+  }
+  .top-nav-right li.dropdown:hover .dropdown-content {
+    display: none; /* disable hover on mobile */
+  }
+  /* Show dropdown on mobile when .active */
+  .top-nav-right li.dropdown .dropdown-content.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* keep this */
+  .dropdown-arrow {
+    display: inline-block;
+    color: #fff;          /* visible arrow color */
+    /* remove float if you are using flex on the link; keep for now if you must */
+    margin-left: 5px;
+    transform: scale(1.4) rotate(0deg); /* enlarge + set base rotation */
+    transition: transform 0.3s ease, color 0.3s ease;
+    vertical-align: middle;     /* align with text */
+  }
+
+  /* remove the duplicate transform line so scale remains when rotated */
+  .dropdown-arrow.open {
+    transform: scale(1.4) rotate(180deg); /* keep enlarged when rotated */
+    color: var(--newlink-color); /* arrow color when submenu is active */
+  }
+
+  /* Hamburger visible on mobile */
+  .hamburger {
+    display: block;
+    transition: color 0.5s ease, transform 0.5s ease;
+  }
+  /* Hamburger when menu is open */
+  .hamburger.open {
+    color: var(--newlink-color); /* change to any color you want */
+  }
+}

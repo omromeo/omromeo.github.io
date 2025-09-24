@@ -1,0 +1,114 @@
+<!-- Geospace Page -->
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<!-- HEAD CONTENT-->
+<head>
+  <!-- WEB PAGE TITLE-->
+  <title>Geospace - Romeo O. M.</title>
+  <!-- METADATA -->
+  <meta charset="UTF-8"/> <!-- Sets character encoding so symbols/text display correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Makes site mobile-friendly (scales properly on phones & tablets) -->
+  <meta name="author" content="Orlando M. Romeo" />
+  <meta name="description" content="Geospace Research conducted by Orlando M. Romeo" />
+  <meta name="keywords" content="geospace, space weather, space physics, radiation belts, RBSP, Dst, machine learning, AI, Orlando Romeo, Orlando M. Romeo" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Geospace - Romeo O. M.">
+  <meta property="og:description" content="Geospace Research conducted by Orlando M. Romeo">
+  <meta property="og:image" content="http://omromeo.com/images/OrlandoMRomeo.jpg">
+  <meta property="og:url" content="http://omromeo.com/geospace">
+  <meta property="og:type" content="website">
+  <!-- PAGE STYLINGS -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Links to your external stylesheet for custom styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Font Awesome for icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico?v=2">
+</head>
+
+
+<!-- Main HTML Body visible on page -->
+<body id="subresearch-page">
+  <!-- Top Navigation Menu -->
+  <nav class="top-nav" id="navbar">
+    <script src="assets/js/nav-menu.js"></script>
+  </nav>
+
+  <header class="subresearch-header">
+    <h1>Geospace Research</h1>
+  </header>
+
+  
+  <main class="subresearch-container">
+
+    <!-- Project 1 -->
+    <div class="research-project">
+      <div>
+        <h2>Space Weather</h2>
+        <img src="../images/research/sw2018.gif" alt="Space Weather">
+        <p> Detrending Fluctuation Analysis (DFA) was applied on solar wind velocity measurements (1999-2000) from the Advanced Composition Explorer (ACE) spacecraft at L1 
+          to detect long-range correlations from hours to over several days. Based on the results of the DFA, we implemented time delay embedding to each component
+          of the solar wind velocity to determine any temporal correlations for forecasting space weather conditions, with delays spanning from 1 to 24 hours.
+          In addition, we relied on singular value decomposition and nearest neighbor tree search to help guide our analysis for space weather prediction.
+        </p>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="research-project">
+      <div>
+        <h2>Radiation Belt Modeling</h2>
+        <video class="research-video" autoplay loop muted>
+          <source src="../images/research/EarthRB.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>
+        This project focused on data-derived modeling techniques for the application to Earth's radiation belts. We tested our methods first with chaotic systems, 
+        such as the Lorentz attractor, by implementing black box dynamical system techniques, such as delay embedding, singular value decomposition, and nearest 
+        neighbor averaging. With these techniques, we could then apply them to Van Allen Probe data of the Earth’s radiation belts, specifically electron energy 
+        flux as a function of L-shell. We first created synthetic radiation belt intensity (RBI) data based on concepts of diffusion and random walk using Dst 
+        index values. Once this was completed, the code and parameters were altered to model radiation belt intensity in 2015, and was verified by applying other 
+        years from 2010 to 2017. The Python code for forecasting future outputs of the Lorenz attractor was adapted to the RBI data, implementing an input of Dst 
+        into the system. The synthetic data went through delay embedding, singular value decomposition, and the nearest neighbor methods to predict the RBI data for 
+        2016 at one L-shell location. Parameters, such as amount of delays, principle components, and nearest neighbors, were altered in over two thousand combinations 
+        for each varying prediction step in time. As well, other inputs were implemented into the reconstruction and forecast of the system, such as the gradient of the 
+        RBI at a certain L-shell location and RBI values at upper L-shell locations. Finally, using two inputs of Dst index and RBI vaues at upper L-shell location, the 
+        entire spectrum of 2016 RBI from L-shells 2.5 to 7 were forecasted for the entire year.   
+        </p>
+        <img src="../images/research/RBSP.png" alt="Martian crustal magnetism">
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="research-project">
+      <div>
+        <h2>South Atlantic Anamoly</h2>
+        <img src="../images/research/SAA.png" alt="SAA">
+        <p>The purpose of this study was to discover a correlation between fluctuations in the total power intensity of the South Atlantic Anomaly (SAA) 
+          and changes in solar wind and interplanetary magnetic field (IMF) activity. The SAA is a region of the Earth’s magnetic field where high concentrations of 
+          energetic particles reside due to the offset of the inner radiation belt from the Earth’s rotational axis. Due to the high radiation of photons, many satellites 
+          that cross this region are forced to shut their instruments down in fear of permanent damage. The photon count from the SAA region was extracted, filtered, and fit 
+          to a spherical harmonic model in order to calculate the SAA daily averaged intensity. The SAA data was then correlated with the solar wind speed and z-component of 
+          the interplanetary magnetic field strength to understand the causes of the South Atlantic Anomaly. At the end of this investigation, a yearly variation in SAA intensity 
+          was discovered, but no significant correlation was found between 
+          all three datasets spanning across an entire year. This would suggest that solar wind and IMF activity do not affect the overall trend of the SAA on a yearly basis, 
+          signifying that there are other factors that affect this phenomenon in the magnetic field. However, future work could expand this study with other data methods beyond
+          correlation coefficient tests, as well as investigate other solar wind properties. Once these other possible factors are discovered, they can be utilized 
+          to predict the intensity of the SAA to warn satellites when to collect data in this area.
+        </p>
+      </div>
+    </div>
+
+  </main>
+  
+
+  <!-- Main Footer Section -->
+  <script src="../assets/js/main-footer.js"></script>
+  
+</body>
+
+
+</html>

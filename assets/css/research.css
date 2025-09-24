@@ -1,0 +1,137 @@
+/* Research Page */
+
+body#research {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../images/starwallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+      display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  }
+/* Make main content grow to fill space */
+main.research-container {
+  flex: 1 0 auto;
+}
+
+  
+/* Header */
+.research-header h1{margin-top:75px; margin-bottom:0;padding-bottom:0;
+  color:var(--backcolor-light);
+  text-align:center;
+  font-size:3rem;
+}
+
+/* Container for the three boxes */
+.research-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Info boxes */
+.research-info-box {
+  background: rgb(218, 218, 218);
+  border-radius: 12px;
+  padding: 0.75rem;
+  padding-top:0.1rem;
+  width: 27%;
+  max-height: 700px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;  /* removes underline */
+  color: inherit;        
+  transition: transform 0.35s ease, color 0.35s ease; /* apply to both properties */
+}
+
+.research-info-box h2 a {
+  text-decoration: none;  /* removes underline */
+  color: inherit;         /* optional: keep the text color of h2 */
+}
+
+.research-info-box:hover {
+  transform: translateY(-10px);
+  transition: transform 0.35s;
+  color: var(--newlink-color);
+}
+
+
+
+.research-info-box h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-top:0;
+  margin-top:0;
+  font-size: 1.5rem;
+  color: var(--newlink-color);
+}
+
+/* scrollable list area */
+.research-scroll-content {
+  overflow-y: auto;
+  flex: 1 1 auto; /* take remaining space */
+  padding-right: 7px; /* room for scrollbar */
+}
+
+
+/* WebKit / Blink (Chrome, Edge, Safari) */
+.research-scroll-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.research-scroll-content::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.research-scroll-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #070060, #000);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.research-scroll-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #070060, #000);
+}
+
+/* Firefox */
+.research-scroll-content {
+  scrollbar-width: thin; /* options: auto | thin | none */
+  scrollbar-color: #070060 rgba(0,0,0,0.05);
+  border-radius: 10px; /* rounds the container so the bar looks softer */
+}
+
+.research-picture {
+  display: inline-block;   /* works with text-align:center */
+  margin: 0 auto 10px auto;
+  height: 250px;
+  max-width: 90%;
+  border-radius: 10px;
+  align-items: center;
+  border: 4px solid white;
+  width:auto;
+  border-radius:10px;
+  object-fit: cover;
+
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media screen and (max-width: 1200px) {
+  .research-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 18px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .research-info-box {
+    width: 90%;
+    max-width: 720px;
+    height: 500px; /* shorter on mobile to keep things concise */
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,173 @@
+/*=============================================================================*/
+/*=============================================================================*/
+/* ----------------------
+   Presentations List
+   ---------------------- */
+.presentations-page {
+  display: flex;
+  align-items: stretch; /* ensures sidebar stretches with content */
+}
+/* Sidebar styling */
+.pres-sidebar {
+  position: sticky;
+  top: var(--navbar-height); /* stays visible while scrolling */
+  bottom:0;
+  padding: 0rem 2rem;
+  margin:0;
+  color:#FFF;
+  height: calc(100vh - var(--navbar-height)); /* fill remaining viewport */
+  overflow-y: auto;     /* scroll inside if content taller than viewport */
+  align-self: flex-start; /* ensures it sticks independently of main content */
+  font-size: 1.8rem;
+  z-index:1;
+  flex: 0 0 30.5%; /* fixed width sidebar */
+  background-image: url('../../images/starwallpaper-side.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pres-sidebar h2 {
+  font-size: 2.2rem;
+  margin-top:0rem;
+  margin-bottom: 1.0rem;
+  border-bottom: 5px solid #ddd;
+  padding-bottom: 0rem;
+  color:#FFF;
+}
+.pres-sidebar h3 {
+  font-size: 1.7rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0rem;
+  margin-top:25px;
+}
+.pres-sidebar h4 {
+  font-size: 1.5rem;
+  padding-bottom: 0rem;
+  margin: 0rem 0;
+}
+
+.pres-sidebar p {
+  font-size: 1.1rem;
+  padding-bottom: 0rem;
+}
+
+.pres-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+}
+.pres-sidebar li {
+  margin: 0.8rem 0;
+  font-size: 0.94rem;
+}
+/* Increase space between icon and link*/
+.pres-sidebar i {margin-right: 10px;}
+.pres-sidebar a:hover {text-decoration: underline;color: var(--newlink-color);}
+.pres-sidebar li > a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s;  
+}
+
+
+/* Container for presentations */
+#presentations-container {
+  margin: 0; 
+  font-size:12px;
+  padding: 1.25rem 1.5rem 0rem 1.5rem;  /* optional padding inside main content */
+  background-color: var(--backcolor-light);
+}
+/* Presentations Year Header */
+.pres-year {
+  font-size: 2.75em;       /* slightly smaller than h1 */
+  margin-top: 0rem;       /* space above the year heading */
+  margin-bottom: 1rem;  /* space below before the list starts */
+  font-weight: bold;      /* optional, to make it stand out */
+  border-bottom: 2px solid #000;
+}
+/* Presentations lists */
+.pres-list { padding-left: 20px;margin-bottom: 30px;margin-top: 2px;text-align: justify;} /* added to justify the text */
+/* For each individual item*/
+.pres-list li {margin-bottom: 7px;}
+
+/* Sidebar Presentation gallery container */
+.present-gallery {
+  position: relative;
+  width: 100%;;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  overflow: hidden;
+  object-position:center;
+}
+
+/* Stack all figures on top of each other */
+.present-gallery figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;       /* full height to overlay */
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  display:block;
+}
+
+.present-gallery figure.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Image styling */
+.present-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* maintain aspect ratio while filling container */
+  object-position: center;
+  display: block;
+}
+
+/* Caption styling (appears over bottom of image) */
+.present-gallery figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.3rem;
+  z-index: 2;
+}
+
+.present-last-updated p {
+  font-size: 0.9rem;
+  color: #fff;       /* lighter text color for subtlety */
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 800px) {
+  .presentations-page {
+    flex-direction: column; /* stack sidebar on top of main content */
+    align-items: center;    /* center horizontally */
+  }
+  .pres-sidebar {
+    position: relative;     /* remove sticky behavior on mobile */
+    margin-top: var(--navbar-height);
+    bottom: auto;
+    width: 100%;           /* full width of screen */
+    max-width: 100vw;      /* ensure no horizontal overflow */
+    margin: 0;         /* space around sidebar */
+    text-align: center;     /* center headings and links if desired */
+    flex: none;             /* ignore flex sizing */
+    box-sizing: border-box; /* includes padding in width calculation */
+    height:auto;
+  }
+  .pres-sidebar h2,
+  .pres-sidebar h3 {
+    text-align: center;     /* center headings */
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "src": "/images/main/AGU2022_Chicago_Telescope.jpg",
+    "alt": "Adler Planetarium - Chicago, IL (2022)",
+    "caption": "Adler Planetarium - Chicago, IL (2022)"
+  },
+  {
+    "src": "/images/main/MarsRover_JPL2024.jpg",
+    "alt": "JPL Mars Yard - Pasadena, CA (2024)",
+    "caption": "JPL Mars Yard - Pasadena, CA (2024)"
+  },
+  {
+    "src": "/images/main/VomitComet_Arizona2022.jpg",
+    "alt": "Vomit Comet KC-135A - Tucson, AZ (2022)",
+    "caption": "Vomit Comet KC-135A - Tucson, AZ (2022)"
+  },
+  {
+    "src": "/images/main/MCC_JPL2024.jpg",
+    "alt": "JPL Mission Control Center - Pasadena, CA (2024)",
+    "caption": "JPL Mission Control Center - Pasadena, CA (2024)"
+  },
+  {
+    "src": "/images/main/WSMR2024.png",
+    "alt": "X-Ray Testing - WSMR, NM (2024)",
+    "caption": "X-Ray Testing - WSMR, NM (2024)"
+  },
+  {
+    "src": "/images/main/RocketPark_WSMR2024.jpg",
+    "alt": "Rocket Park - WSMR, NM (2024)",
+    "caption": "Rocket Park - WSMR, NM (2024)"
+  },
+  {
+    "src": "/images/main/JPLClipper3_2024.jpg",
+    "alt": "JPL Europa Clipper - Pasadena, CA (2024)",
+    "caption": "JPL Europa Clipper - Pasadena, CA (2024)"
+  },
+  {
+    "src": "/images/main/Caltech2023.jpg",
+    "alt": "Caltech - Pasadena, CA (2023)",
+    "caption": "Caltech - Pasadena, CA (2023)"
+  },
+  {
+    "src": "/images/main/FOXSI4_WSMR2024.JPG",
+    "alt": "FOXSI-4 Rocket - WSMR, NM (2024)",
+    "caption": "FOXSI-4 Rocket - WSMR, NM (2024)"
+  },
+  {
+    "src": "/images/main/Aurora2024_PtReyes.jpg",
+    "alt": "May Aurora - Pt Reyes, CA (2024)",
+    "caption": "May Aurora - Pt Reyes, CA (2024)"
+  },
+  {
+    "src": "/images/presentations/PhD_Exit_Seminar_Berkeley-CA_2025.jpeg",
+    "alt": "Ph.D. Exit Seminar, Berkeley CA 2025",
+    "caption": "Ph.D. Exit Seminar - Berkeley, CA (2025)"
+  },
+  {
+    "src": "/images/main/JFK_NASAFlorida2018.JPG",
+    "alt": "Kennedy Space Center - Merritt Island, FL (2018)",
+    "caption": "Kennedy Space Center - Merritt Island, FL (2018)"
+  },
+  {
+    "src": "/images/main/SSLGrad_2024.jpeg",
+    "alt": "Ph.D. Graduation - Berkeley, CA (2024)",
+    "caption": "Ph.D. Graduation - Berkeley, CA (2024)"
+  }
+]
