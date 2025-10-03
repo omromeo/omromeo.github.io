@@ -154,6 +154,10 @@ async function loadPublications() {
 
     if (fields.year) citation += `(${fields.year}). `;
     if (fields.title) citation += `${toTitleCase(fields.title)}. `;
+    if (fields._type === 'dataset') {
+      citation += `[Data set]. `;
+      if (fields.publisher) citation += `<em>${toTitleCase(fields.publisher)}</em>.`;
+    }
 
     if (fields._type === 'article' && fields.journal) {
       citation += `<em>${toTitleCase(fields.journal)}</em>`;
