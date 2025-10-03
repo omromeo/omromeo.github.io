@@ -117,10 +117,10 @@ async function loadPublications() {
 
     let formattedAuthors = [];
 
-    // Handle authors before Romeo
-    if (romeoIndex > 4) {
+    // Remove authors for more than 3rd authors before Romeo
+    if (romeoIndex > 3) {
       formattedAuthors.push(
-        authorsArr.slice(0, 4).join(', '),
+        authorsArr.slice(0, 3).join(', '),
         '[...]',
         '<strong>Romeo, O. M.</strong>'
       );
@@ -131,11 +131,11 @@ async function loadPublications() {
       );
     }
 
-    // Handle authors after Romeo
+    // Remove authors for more than 3rd authors after Romeo
     const afterRomeo = authorsArr.slice(romeoIndex + 1);
-    if (afterRomeo.length > 5) {
+    if (afterRomeo.length > 2) {
       formattedAuthors.push(
-        ...afterRomeo.slice(0, 5).map(a => a),
+        ...afterRomeo.slice(0, 2).map(a => a),
         '<em>et al.</em>'
       );
     } else {
@@ -166,6 +166,7 @@ async function loadPublications() {
       if (fields.pages) citation += `, ${fields.pages}.`;
     } else if (fields._type === 'inproceedings' && fields.booktitle) {
       citation += `<em>${toTitleCase(fields.booktitle)}</em>`;
+      if (fields.publisher) citation += `, ${toTitleCase(fields.publisher)}`;
       if (fields.volume) citation += `, ${fields.volume}`;
       if (fields.number) citation += `(${fields.number})`;
       if (fields.pages) citation += `, ${fields.pages}.`;
