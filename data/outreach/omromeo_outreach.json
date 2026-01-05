@@ -70,7 +70,7 @@
     "year": "2023",
     "category": "community",
     "title": "California Academy of Sciences",
-    "role": "Volunteer",
+    "role": "Entomology Volunteer",
     "description": "Assisted in field expeditions to collect specimens for the California Insect Barcode Initiative (CIBI), contributing to a statewide biodiversity database.",
     "list": []
   },
@@ -86,8 +86,16 @@
     "year": "2022",
     "category": "community",
     "title": "California Academy of Sciences",
-    "role": "Volunteer",
+    "role": "Entomology Volunteer",
     "description": "Assisted in field expeditions to collect specimens for the California Insect Barcode Initiative (CIBI), contributing to a statewide biodiversity database.",
+    "list": []
+  },
+  {
+    "year": "2021",
+    "category": "community",
+    "title": "East Bay Vivarium",
+    "role": "Tech Systems Volunteer",
+    "description": "Created an interactive Google Apps Script tool that helps employees easily organize and manage hundreds of animal boarding records.",
     "list": []
   },
   {
