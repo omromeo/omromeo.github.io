@@ -110,7 +110,7 @@ async function loadPresentations() {
     let authorsArr = fields.author.split(/\s+and\s+/).map(a => a.trim());
 
     // Replace any literal "others" with <em>et al.</em>
-    authorsArr = authorsArr.map(a => a.toLowerCase() === "others" ? "<em>et al.</em>" : a);
+    //authorsArr = authorsArr.map(a => a.toLowerCase() === "others" ? "<em>et al.</em>" : a);
 
     // Find index of "Romeo, O. M."
     const romeoIndex = authorsArr.findIndex(a => /Romeo, O\. M\./.test(a));
@@ -146,7 +146,7 @@ async function loadPresentations() {
     let authors = formattedAuthors.join(', ');
 
     // Just in case "others" slipped through anywhere
-    authors = authors.replace(/\bothers\b/gi, '<em>et al.</em>');
+    authors = authors.replace(/\bothers\b/gi, '<em>[...]</em>');
 
     citation += `${authors} `;
   }
